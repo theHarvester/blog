@@ -1,0 +1,80 @@
+/**
+ *  Global styles and mixins
+ */
+
+@theme_green_opposite: rgb(255, 118, 64);
+@theme_green_opposite_light: lighten(@theme_green_opposite,5);
+@theme_green_opposite_dark: darken(@theme_green_opposite,5);
+
+@theme_green_base: darken(spin(@theme_green_opposite,180),0);
+@theme_green_base_light: lighten(@theme_green_base, 10);
+@theme_green_base_dark: darken(@theme_green_base, 10);
+
+
+
+
+//blue theme
+@base: rgb(70, 113, 213);
+@darker: rgb(18, 64, 171);
+
+
+//green ones
+//@base: rgb(0, 160, 138);
+//@darker: rgb(0, 104, 90);
+
+
+@dark: lighten(@darker, 2);
+@light: lighten(@base, 3);
+@lighter: lighten(@base, 6);
+
+@grey: #424242;
+@gray_light: lighten(@grey, 3);
+
+.box_shadow(){
+  -webkit-box-shadow: 2px 2px 10px 1px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    2px 2px 10px 1px rgba(50, 50, 50, 0.75);
+  box-shadow:         2px 2px 10px 1px rgba(50, 50, 50, 0.75);
+}
+
+.transition_me(){
+  -webkit-transition: background-color 200ms linear;
+  -moz-transition: background-color 200ms linear;
+  -o-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
+}
+
+.transition_pos_left(){
+  -webkit-transition: left 100ms linear;
+  -moz-transition: left 100ms linear;
+  -o-transition: left 100ms linear;
+  -ms-transition: left 100ms linear;
+  transition: left 100ms linear;
+}
+
+.transition_margin_left(){
+  -webkit-transition: margin-left 100ms linear;
+  -moz-transition: margin-left 100ms linear;
+  -o-transition: margin-left 100ms linear;
+  -ms-transition: margin-left 100ms linear;
+  transition: margin-left 100ms linear;
+}
+
+@font-face {
+  font-family: 'ComicNeue-Angular-Light';
+  src: url('fonts/ComicNeue-Angular-Light.eot');
+  src: url('fonts/ComicNeue-Angular-Light.eot') format('eot'),
+  url('fonts/ComicNeue-Angular-Light.woff') format('woff'),
+  url('fonts/ComicNeue-Angular-Light.ttf') format('ttf');
+}
+
+.clear {
+  clear:both;
+}
+
+body {
+  font-family: 'ComicNeue-Angular-Light', Arial, sans-serif;
+  text-shadow: 1px 1px 0px #5B676E;
+  color:white;
+  font-size: 15pt;
+}
