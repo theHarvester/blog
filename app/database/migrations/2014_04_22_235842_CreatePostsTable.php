@@ -21,6 +21,9 @@ class CreatePostsTable extends Migration {
             $table->string('tag_line', 200)->unique();
             $table->text('summary');
             $table->text('article');
+            $table->boolean('active')->default(false);
+            $table->timestamp('published_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
 	}
