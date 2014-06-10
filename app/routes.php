@@ -30,7 +30,7 @@ Route::get('test', array('as' => 'test', function()
 asdf
 {style}
 {link:http://test.com}
-Link Text
+{image:http://www.desktopict.com/wp-content/uploads/2014/02/mario-wallpaper-9-1024x819.jpg}alt text{image}
 {link}
 {code:PHP}asdf{code}
 {code:JS}asdf{code}
