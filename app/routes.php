@@ -79,6 +79,9 @@ Route::group(array('before' => 'auth'), function()
     }));
 
     Route::post('article/{postId}', array(function ($postId) {
+
+        var_dump( Markdown::toHtml('something'));
+        die();
         $post = Post::find($postId);
         $post->title = Input::get('title');
         $post->slug = Input::get('slug');
