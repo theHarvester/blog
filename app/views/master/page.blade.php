@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adventures in Brogramming</title>
+    <title>We blog about code</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
 
@@ -25,7 +25,7 @@
 <body>
 <div id="header">
     <div id="site-title">
-        Adventures in Brogramming
+        We blog about code
     </div>
     <div id="page-tag-line">When life hands you lemons, do tequila shots</div>
 </div>
