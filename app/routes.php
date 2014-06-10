@@ -25,9 +25,14 @@ Route::get('/', array('as' => 'home', function()
 
 Route::get('page/{pageNum}', function($pageNum)
 {
+    $posts = Post::where('active', '=', true)
+        ->orderBy('published_at', 'desc')
+        ->take(10)
+        ->skip(($pageNum * 10) - 10)
+        ->get();
 
-    print_r($pageNum);
-    die();
+    return View::make('blog.list')
+        ->with('posts', $posts);
 });
 
 Route::get('post/{slug}',  array('as' => 'post', function($slug)
@@ -44,4 +49,4 @@ Route::get('post/{slug}',  array('as' => 'post', function($slug)
 
 
 
-Route::controller('backend', 'UsersController');
+Route::controller('account', 'UsersController');
