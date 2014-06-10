@@ -23,6 +23,24 @@ Route::get('/', array('as' => 'home', function()
         ->with('posts', $posts);
 }));
 
+Route::get('test', array('as' => 'test', function()
+{   
+    $subject = "
+{style:b}
+asdf
+{style}
+{link:http://test.com}
+Link Text
+{link}
+{code:PHP}asdf{code}
+{code:JS}asdf{code}
+{image:http://www.desktopict.com/wp-content/uploads/2014/02/mario-wallpaper-9-1024x819.jpg}alt text{image}
+";
+    $markup = new Markup();
+    die($markup->toHtml($subject));
+    
+}));
+
 Route::get('page/{pageNum}', function($pageNum)
 {
     $posts = Post::where('active', '=', true)
