@@ -7,6 +7,7 @@ class PostTableSeeder extends Seeder {
         $date = new \DateTime;
         Post::create(array(
             'title' => 'Title for first created',
+            'author_id' => 1,
             'slug' => 'this_is_a_slug',
             'thumbnail' => 'http://www.esri.com/news/arcuser/0610/graphics/nospin_1-lg.jpg',
             'page_tag_line' => 'Page tag line motherfucker',
@@ -32,6 +33,7 @@ class PostTableSeeder extends Seeder {
 
         Post::create(array(
             'title' => 'Title for second created',
+            'author_id' => 1,
             'slug' => 'this_is_the_second',
             'thumbnail' => 'http://www.esri.com/news/arcuser/0610/graphics/nospin_1-lg.jpg',
             'page_tag_line' => 'Page tag line motherfucker 2',

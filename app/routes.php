@@ -47,6 +47,61 @@ Route::get('post/{slug}',  array('as' => 'post', function($slug)
 
 }));
 
+Route::group(array('before' => 'auth'), function()
+{
+    Route::get('article/create', array(function () {
+        // create and redirect to article/id
+        $post = new Post;
+        $post->title = '';
+        $post->slug = '';
+        $post->thumbnail = '';
+        $post->page_tag_line = '';
+        $post->tag_line = '';
+        $post->summary = '';
+        $post->article_raw = '';
+        $post->active = false;
+        $post->save();
+        return Redirect::to('article/'.$post->id);
+    }));
 
+    Route::get('article/toggle_show/{postId}', function ($postId) {
+        $post = Post::find($postId);
+        // inverse the active status
+        $post->active = !$post->active;
+        $post->save();
+        return Redirect::route('articles');
+    });
+
+    Route::get('article/{postId}', array(function ($postId) {
+        $post = Post::find($postId);
+        return View::make('admin.article.edit')
+            ->with('post', $post);
+    }));
+
+    Route::post('article/{postId}', array(function ($postId) {
+        $post = Post::find($postId);
+        $post->title = Input::get('title');
+        $post->slug = Input::get('slug');
+        $post->thumbnail = Input::get('thumbnail');
+        $post->page_tag_line = Input::get('page_tag_line');
+        $post->tag_line = Input::get('tag_line');
+        $post->summary = Input::get('summary');
+        $post->article_raw = Input::get('article_raw');
+        $post->save();
+
+        return View::make('blog.article')
+            ->with('post', $post);
+    }));
+
+    Route::get('articles/preview/{post_id}', array(function () {
+        return View::make('admin.article.preview');
+    }));
+
+    Route::get('articles', array('as' => 'articles', function () {
+        $posts = Post::all();
+        return View::make('admin.article.list')
+            ->with('posts', $posts);
+    }));
+});
 
 Route::controller('account', 'UsersController');

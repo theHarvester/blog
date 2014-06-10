@@ -14,6 +14,7 @@ class CreatePostsTable extends Migration {
 	{
         Schema::create('posts', function($table) {
             $table->increments('id');
+            $table->integer('author_id');
             $table->string('title', 200);
             $table->string('slug', 150)->unique();
             $table->string('thumbnail', 255);

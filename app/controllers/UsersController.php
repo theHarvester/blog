@@ -13,12 +13,12 @@ class UsersController extends BaseController {
         );
 
         if (Auth::attempt($user)) {
-            return Redirect::to('backend/markdown')
+            return Redirect::to('articles')
                 ->with('flash_notice', 'You are successfully logged in.');
         }
 
         // authentication failure! lets go back to the login page
-        return Redirect::to('backend/login')
+        return Redirect::to('account/login')
             ->with('flash_error', 'Your username/password combination was incorrect.')
             ->withInput();
     }

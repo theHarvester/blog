@@ -4,7 +4,7 @@
 <div class="section">
 <h2 class="article-title list-title">Login</h2>
 
-{{ Form::open(array('url' => 'backend/login', 'method' => 'POST')) }}
+{{ Form::open(array('url' => 'account/login', 'method' => 'POST')) }}
 
 <p>
     <span class="pure-u-1-4">
