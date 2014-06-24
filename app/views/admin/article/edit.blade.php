@@ -39,7 +39,7 @@
             {{ Form::label('summary', 'Summary') }}
         </p>
         <p>
-            {{ Form::text('summary', $post->summary) }}
+            {{ Form::textarea('summary', $post->summary) }}
         </p>
         <p>
             {{ Form::label('article_raw', 'Article markdown') }}

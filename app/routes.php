@@ -23,24 +23,6 @@ Route::get('/', array('as' => 'home', function()
         ->with('posts', $posts);
 }));
 
-Route::get('test', array('as' => 'test', function()
-{   
-    $subject = "
-{style:b}
-asdf
-{style}
-{link:http://test.com}
-{image:http://www.desktopict.com/wp-content/uploads/2014/02/mario-wallpaper-9-1024x819.jpg}alt text{image}
-{link}
-{code:PHP}asdf{code}
-{code:JS}asdf{code}
-{image:http://www.desktopict.com/wp-content/uploads/2014/02/mario-wallpaper-9-1024x819.jpg}alt text{image}
-";
-    $markup = new Markup();
-    die($markup->toHtml($subject));
-    
-}));
-
 Route::get('page/{pageNum}', function($pageNum)
 {
     $posts = Post::where('active', '=', true)
@@ -97,9 +79,8 @@ Route::group(array('before' => 'auth'), function()
     }));
 
     Route::post('article/{postId}', array(function ($postId) {
+        $markup = new Markup();
 
-        var_dump( Markdown::toHtml('something'));
-        die();
         $post = Post::find($postId);
         $post->title = Input::get('title');
         $post->slug = Input::get('slug');
@@ -108,6 +89,7 @@ Route::group(array('before' => 'auth'), function()
         $post->tag_line = Input::get('tag_line');
         $post->summary = Input::get('summary');
         $post->article_raw = Input::get('article_raw');
+        $post->article = $markup->toHtml(Input::get('article_raw'));
         $post->save();
 
         return View::make('blog.article')
